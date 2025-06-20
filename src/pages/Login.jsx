@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FormFateFactory from "../formFactory";
+import { deserializeWithFunctions } from "../utils";
 
 export default function Login() {
     // const form = useForm({ schema: loginSchema });
@@ -28,7 +29,7 @@ export default function Login() {
             <h1 className="text-2xl font-bold mb-4">Login</h1>
             {logiSchema ? (
                 <FormFateFactory
-                    formDefinition={logiSchema}
+                    formDefinition={deserializeWithFunctions(logiSchema)}
                     onSubmit={(data) => {
                         console.log('Form submitted:', data);
                     }}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FormFateFactory from "../formFactory";
+import { deserializeWithFunctions } from "../utils";
 
 export default function Signup() {
     const [signupSchema, setSignupSchema] = useState(undefined);
@@ -27,7 +28,7 @@ export default function Signup() {
             <h1 className="text-2xl font-bold mb-4">Signup</h1>
             {signupSchema ? (
                 <FormFateFactory
-                    formDefinition={signupSchema}
+                    formDefinition={deserializeWithFunctions(signupSchema)}
                     onSubmit={(data) => {
                         console.log('Signup form submitted:', data);
                     }}

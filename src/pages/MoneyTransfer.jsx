@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FormFateFactory from "../formFactory";
+import { deserializeWithFunctions } from "../utils";
 
 export default function MoneyTransfer() {
 
@@ -27,7 +28,7 @@ export default function MoneyTransfer() {
             <h1 className="text-2xl font-bold mb-4">Money Transfer</h1>
             {transferSchema ? (
                 <FormFateFactory
-                    formDefinition={transferSchema}
+                    formDefinition={deserializeWithFunctions(transferSchema)}
                     onSubmit={(data) => {
                         alert('Signup form submitted:' + JSON.stringify(data));
                     }}
